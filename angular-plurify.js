@@ -25,6 +25,7 @@ angular.module('angular-plurify', []).filter('plurify', [
       } else {
         plur = textOther;
       }
+
       return input + ' ' + plur;
     };
   }
