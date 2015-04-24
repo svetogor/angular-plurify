@@ -5,25 +5,24 @@ angular.module('angular-plurify', []).filter 'plurify', [ ->
     # textFew  - 'кота'
     # textMany - 'котов'
 
-    plur = textOne
-    modulo = input % 10
+    mod10 = input % 10
+    mod100 = input % 100
 
-    if input == 0
-      plur = textMany
-    else if input == 1
+    textMany = textOne unless textMany
+    textOther = textFew
+
+    if mod10 is 1 and mod100 isnt 11
       plur = textOne
-    else if input >= 2 and input <= 4
+    else if mod10 >= 2 and mod10 <= 4 and mod100 isnt 11 and mod100 isnt 12 and mod100 isnt 13 and mod100 isnt 14
       plur = textFew
-    else if input >= 5 and input <= 19
+    else if mod10 is 0
       plur = textMany
-    else if modulo == 0
+    else if mod10 is 5 or mod10 is 6 or mod10 is 7 or mod10 is 8 or mod10 is 9
       plur = textMany
-    else if modulo == 1
-      plur = textOne
-    else if modulo > 1 and modulo <= 4
-      plur = textFew
+    else if mod100 is 11 or mod100 is 12 or mod100 is 13 or mod100 is 14
+      plur = textMany
     else
-      plur = textMany
+      plur = textOther
 
     return input + ' ' + plur
 
