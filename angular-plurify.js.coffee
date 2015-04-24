@@ -1,4 +1,4 @@
-angular.module('plurify', []).filter 'plurify', [ ->
+angular.module('angular-plurify', []).filter 'plurify', [ ->
   (input, textOne, textFew, textMany) ->
     # input    - число
     # textOne  - 'кот'
