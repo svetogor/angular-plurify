@@ -25,5 +25,5 @@ $filter('plurify')(1, 'кот', 'кота', 'котов')
 ## Установка
 
 1. Скопируйте к себе в проект файл `plurify.js` или `plurify.js.coffee`
-2. Добавьте в зависимости Angular модуль `angular.module('yourApp', ['angular-plurify']);`
+2. Добавьте в зависимости `angular.module('yourApp', ['angular-plurify']);`
 3. Пользуйтесь!
