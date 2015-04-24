@@ -1,14 +1,14 @@
 angular.module('plurify', []).filter('plurify', [
   function() {
     return function(input, textOne, textFew, textMany) {
-      // input - число
-      // textOne - 'кот'
-      // textFew - 'кота'
+      // input    - число
+      // textOne  - 'кот'
+      // textFew  - 'кота'
       // textMany - 'котов'
 
-      var modulo, plur;
-      plur = textOne;
-      modulo = input % 10;
+      var plur = textOne;
+      var modulo = input % 10;
+
       if (input === 0) {
         plur = textMany;
       } else if (input === 1) {
@@ -26,6 +26,7 @@ angular.module('plurify', []).filter('plurify', [
       } else {
         plur = textMany;
       }
+
       return input + ' ' + plur;
     };
   }
